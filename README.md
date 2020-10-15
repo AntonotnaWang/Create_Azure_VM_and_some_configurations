@@ -213,9 +213,9 @@ sudo sh cuda_10.1.243_418.87.00_linux.run
 
 #### 5. 添加环境变量
 
-（参考https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions中7. Post-installation Actions）
+（参考https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#post-installation-actions 中的7. Post-installation Actions）
 
-（亦可参考如下网址设置system-wide的环境变量 https://www.pugetsystems.com/labs/hpc/How-To-Install-CUDA-10-1-on-Ubuntu-19-04-1405/）
+（亦可参考如下网址设置system-wide的环境变量 https://www.pugetsystems.com/labs/hpc/How-To-Install-CUDA-10-1-on-Ubuntu-19-04-1405/ ）
 
 输入命令打开bashrc
 
