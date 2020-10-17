@@ -66,7 +66,7 @@ df -lh
 
 #### 2. 格式化
 
-可见待挂载的硬盘为/dev/sdc和/dev/sdd，此处以/dev/sdc为例；本教程不对硬盘进行分区，直接格式化；可见待挂载的硬盘为/dev/sdc和/dev/sdd，此处以/dev/sdc为例；本教程不对硬盘进行分区，直接格式化； mkfs命令用来在特定的分区创建linux文件系统，常见的文件系统有ext2，ext3，ext4, vfat
+可见待挂载的硬盘为`/dev/sdc`和`/dev/sdd`，此处以`/dev/sdc`为例；本教程不对硬盘进行分区，直接格式化；可见待挂载的硬盘为`/dev/sdc`和`/dev/sdd`，此处以`/dev/sdc`为例；本教程不对硬盘进行分区，直接格式化； `mkfs`命令用来在特定的分区创建linux文件系统，常见的文件系统有`ext2, ext3, ext4, vfat`
 
 输入命令：
 
@@ -78,9 +78,9 @@ sudo mkfs.ext4 /dev/sdc
 
 #### 3. 挂载
 
-参见[官方教程](https://docs.azure.cn/zh-cn/virtual-machines/linux/attach-disk-portal)
+参见[官方文档](https://docs.azure.cn/zh-cn/virtual-machines/linux/attach-disk-portal)
 
-创建文件夹/home/users（此文件夹用于创建本虚拟机用户）作为硬盘挂载的文件夹（此处为示例，可将硬盘挂载在其他文件夹下）
+创建文件夹`/home/users`（此文件夹用于创建本虚拟机用户）作为硬盘挂载的文件夹（此处为示例，可将硬盘挂载在其他文件夹下）
 
 输入命令：
 
@@ -88,7 +88,7 @@ sudo mkfs.ext4 /dev/sdc
 sudo mkdir /home/users
 ```
 
-将/dev/sdc挂载在/home/users下
+将`/dev/sdc`挂载在`/home/users`下
 
 输入命令：
 
@@ -110,13 +110,13 @@ df -h
 
 打开/etc/fstab并进行修改
 
-输入命令查看磁盘的UUID（自动挂载需使用磁盘UUID，否则重启会造成错误，e.g. 对于/dev/sdc，查看得知/dev/sdc: UUID="565d6e94-864f-48de-95d2-87d1ac282416" TYPE="ext4"）
+输入命令查看磁盘的UUID（自动挂载需使用磁盘UUID，否则重启会造成错误，e.g. 对于`/dev/sdc`，查看得知`/dev/sdc: UUID="565d6e94-864f-48de-95d2-87d1ac282416" TYPE="ext4"`）
 
 ```
 blkid
 ```
 
-输入命令，打开 /etc/fstab 文件：
+输入命令，打开`/etc/fstab`文件：
 
 ```
 sudo nano /etc/fstab
@@ -138,11 +138,11 @@ UUID=565d6e94-864f-48de-95d2-87d1ac282416       /home/users     ext4    defaults
 sudo reboot
 ```
 
-#### 7. 仿照上述操作，将/dev/sdd挂载在/data0（/data0为本虚拟机用户大型数据存储文件夹）下，用以存放数据
+#### 7. 仿照上述操作，将`/dev/sdd`挂载在`/data0`（`/data0`为本虚拟机用户大型数据存储文件夹）下，用以存放数据
 
 ***
 
-## C. 安装NVIDIA显卡驱动（使用 Ubuntu 软件仓库中的稳定版本安装）
+## C. 安装NVIDIA显卡驱动（使用Ubuntu软件仓库中的稳定版本安装）
 
 #### 1. 查看NVIDIA显卡型号
 
@@ -287,7 +287,7 @@ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
 
 ***
 
-## (D+E)/2. 修改/data0权限为777（/data0为本虚拟机用户大型数据存储文件夹）
+## (D+E)/2. 修改/data0权限为777（`/data0`为本虚拟机用户大型数据存储文件夹）
 
 输入命令
 
@@ -307,7 +307,7 @@ sudo chmod 777 /data0
 sudo groupadd normalusers
 ```
 
-#### 2. 创建用户 （e.g. 在/home/users下创建用户wangad）
+#### 2. 创建用户 （e.g. 在`/home/users`下创建用户wangad）
 
 输入命令
 
