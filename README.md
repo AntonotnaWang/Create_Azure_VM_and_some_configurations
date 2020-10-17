@@ -78,6 +78,8 @@ sudo mkfs.ext4 /dev/sdc
 
 #### 3. 挂载
 
+参见[官方教程](https://docs.azure.cn/zh-cn/virtual-machines/linux/attach-disk-portal)
+
 创建文件夹/home/users（此文件夹用于创建本虚拟机用户）作为硬盘挂载的文件夹（此处为示例，可将硬盘挂载在其他文件夹下）
 
 输入命令：
@@ -108,7 +110,13 @@ df -h
 
 打开/etc/fstab并进行修改
 
-输入命令：
+输入命令查看磁盘的UUID（自动挂载需使用磁盘UUID，否则重启会造成错误，e.g. 对于/dev/sdc，查看得知/dev/sdc: UUID="565d6e94-864f-48de-95d2-87d1ac282416" TYPE="ext4"）
+
+```
+blkid
+```
+
+输入命令，打开 /etc/fstab 文件：
 
 ```
 sudo nano /etc/fstab
@@ -117,7 +125,7 @@ sudo nano /etc/fstab
 在文件末尾加入
 
 ```
-/dev/sdc        /home/users     ext4    defaults        0       0
+UUID=565d6e94-864f-48de-95d2-87d1ac282416       /home/users     ext4    defaults        0       0
 ```
 
 ![Create Microsoft Azure VM](figures/fig11.png)
